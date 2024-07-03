@@ -7,11 +7,15 @@ const HomeScreen = ({ navigation }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getProducts().then(setProducts);
+    const fetchProducts = async () => {
+      const items = await getProducts();
+      setProducts(items);
+    };
+    fetchProducts();
   }, []);
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
+  const handleAddToCart = async (product) => {
+    await addToCart(product);
     navigation.navigate('Cart');
   };
 
@@ -33,18 +37,17 @@ const HomeScreen = ({ navigation }) => {
       </View>
       <View style={styles.subheading}>
         <Text style={styles.storyTitle}>OUR STORY</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
           <Image source={require('./assets/shoppingBag.png')} style={styles.icon} />
         </TouchableOpacity>
       </View>
       <FlatList
         data={products}
+        numColumns={2}
         renderItem={({ item }) => (
-          <ProductItem product={item} onAddToCart={() => handleAddToCart(item)} />
+          <ProductItem product={item} onAddToCart={handleAddToCart} />
         )}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={2} 
-        columnWrapperStyle={styles.row} 
       />
     </View>
   );
@@ -86,10 +89,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  row: {
-    justifyContent: 'space-between',
-  },
 });
 
 export default HomeScreen;
-e

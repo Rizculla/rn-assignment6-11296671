@@ -8,7 +8,7 @@ const ProductItem = ({ product, onAddToCart }) => {
       <Text style={styles.productName}>{product.name}</Text>
       <Text style={styles.productDescription}>{product.description}</Text>
       <Text style={styles.productPrice}>${product.price}</Text>
-      <TouchableOpacity onPress={onAddToCart} style={styles.addButton}>
+      <TouchableOpacity onPress={() => onAddToCart(product)} style={styles.addButton}>
         <Text style={styles.addButtonText}>Add to Cart</Text>
       </TouchableOpacity>
     </View>
@@ -17,7 +17,7 @@ const ProductItem = ({ product, onAddToCart }) => {
 
 const styles = StyleSheet.create({
   productItem: {
-    flex: 1, // Take up half the space
+    flex: 1,
     padding: 10,
     margin: 5,
     backgroundColor: '#fff',
