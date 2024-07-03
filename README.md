@@ -49,7 +49,7 @@ This project is a React Native application that demonstrates a simple shopping c
 
 ## Screenshot
 
-![App Screenshot](./assets/Screenshot 2024-07-03 193953.png)
-![App Screenshot](./assets/Screenshot 2024-07-03 194035.png)
+![App Screenshot](./assets/Screenshot2.png)
+![App Screenshot](./assets/Screenshot1.png)
 
 
