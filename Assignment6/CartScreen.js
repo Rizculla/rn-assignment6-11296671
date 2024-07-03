@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { getCartItems, removeFromCart } from './Storage';
 
 const CartScreen = () => {
@@ -30,10 +30,12 @@ const CartScreen = () => {
               <Text>{item.name}</Text>
               <Text>${item.price}</Text>
             </View>
-            <Button title="Remove" onPress={() => handleRemove(item.id)} />
+            <TouchableOpacity onPress={() => handleRemove(item.id)}>
+              <Image source={require('./assets/remove.png')} style={styles.removeIcon} />
+            </TouchableOpacity>
           </View>
         )}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id.toString()} // Ensure unique keys
       />
       <Text style={styles.total}>
         Est. Total: ${cartItems.reduce((sum, item) => sum + item.price, 0)}
@@ -56,6 +58,7 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     marginVertical: 5,
     padding: 10,
     borderWidth: 1,
@@ -70,6 +73,10 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     resizeMode: 'contain',
+  },
+  removeIcon: {
+    width: 24,
+    height: 24,
   },
   total: {
     fontSize: 18,
