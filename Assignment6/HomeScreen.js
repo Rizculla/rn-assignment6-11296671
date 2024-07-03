@@ -43,8 +43,8 @@ const HomeScreen = ({ navigation }) => {
           <ProductItem product={item} onAddToCart={() => handleAddToCart(item)} />
         )}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={2} // Set the number of columns
-        columnWrapperStyle={styles.row} // Style for the row
+        numColumns={2} 
+        columnWrapperStyle={styles.row} 
       />
     </View>
   );
@@ -92,3 +92,4 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+e
