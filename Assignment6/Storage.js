@@ -9,12 +9,7 @@ const sampleProducts = [
   { id: 3, name: 'Lamerie', description:'Reversible Angora Cardigan', price: 200, imagesrc: require('./assets/dress3.png') },
   { id: 4, name: 'Church Wear', description:'Reversible Angora Cardigan', price: 120, imagesrc: require('./assets/dress4.png') },
   { id: 5, name: 'Lopo', description:'Reversible Angora Cardigan', price: 120, imagesrc: require('./assets/dress5.png') },
-  { id: 6, name: 'Lame', description:'Reversible Angora Cardigan', price: 120, imagesrc: require('./assets/dress6.png') },
-
-
-
-
-  // Add more products here
+  { id: 6, name: 'Lame', description:'Reversible Angora Cardigan', price: 120, imagesrc: require('./assets/dress6.png')}
 ];
 
 export const getProducts = async () => {
